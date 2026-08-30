@@ -9,8 +9,14 @@ package.name = zakimobileapp
 # (str) Package domain (needed for android packaging)
 package.domain = org.zaki
 
-# (str) Source files where the let of data is (relative to directory of spec)
+# (list) Source files to include (let it empty to include all files)
 source.include_exts = py,png,jpg,kv,atlas
+
+# (list) Source directory where the application files are located
+source.dir = .
+
+# (str) Application versioning
+version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
@@ -19,12 +25,17 @@ requirements = python3,kivy
 # (str) Supported orientations
 orientation = portrait
 
-#
-# Android specific
-#
+# (list) List of permissions
+#android.permissions = INTERNET
 
-# (list) Permissions
-android.permissions = INTERNET
+# (str) Icon of the application
+#icon.filename = %(source.dir)s/data/icon.png
+
+# (str) Presplash of the application
+#presplash.filename = %(source.dir)s/data/presplash.png
+
+# (list) Supported architectures
+android.archs = arm64-v8a, armeabi-v7a
 
 # (int) Target Android API, should be as high as possible.
 android.api = 33
@@ -32,8 +43,5 @@ android.api = 33
 # (int) Minimum API your APK will support.
 android.minAPI = 21
 
-# (str) Android NDK version to use
-android.ndk = 25b
-
-# (bool) Enable Android auto backup
-android.autopm = True
+# (bool) Use the Android X support library
+android.androidx = True
